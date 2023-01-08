@@ -1,0 +1,33 @@
+[package]
+name = "clipstash"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "clipstash"
+path = "src/lib/mod.rs"
+
+[domain]
+name = "domain"
+path = "src/lib/domain/mod.rs"
+
+[data]
+name = "data"
+path = "src/lib/data/mod.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1.0.91"
+thiserror = "1.0.38"
+chrono = { version = "0.4.23", features = ["serde"] }
+uuid = { version = "1.2.2", features = ["serde", "v4"] }
+derive_more = "0.99.16"
+rand = "0.8.4"
+sqlx = { version = "0.6.2", features = [
+    "sqlite",
+    "runtime-tokio-rustls",
+    "macros",
+    "uuid",
+    "chrono"
+] }

@@ -1,0 +1,14 @@
+{
+  "rust-analyzer.server.extraEnv": {
+    "DATABASE_URL": "sqlite:data.db"
+  },
+  "cSpell.ignoreWords": [
+    "chrono",
+    "datetime",
+    "shortcode",
+    "sqlx",
+    "structopt",
+    "thiserror"
+  ],
+  "cSpell.words": ["clipstash"]
+}
