@@ -68,7 +68,7 @@ pub struct NewClip {
     pub(in crate::data) posted: i64,
     pub(in crate::data) expires: Option<i64>,
     pub(in crate::data) password: Option<String>,
-    pub(in crate::data) hits: u64,
+    // pub(in crate::data) hits: u64,
 }
 
 impl From<crate::service::ask::NewClip> for NewClip {
@@ -81,7 +81,6 @@ impl From<crate::service::ask::NewClip> for NewClip {
             password: req.password.into_inner(),
             shortcode: ShortCode::default().into(),
             posted: Utc::now().timestamp(),
-            hits: req.hits.into_inner(),
         }
     }
 }
@@ -92,7 +91,6 @@ pub struct UpdateClip {
     pub(in crate::data) title: Option<String>,
     pub(in crate::data) expires: Option<i64>,
     pub(in crate::data) password: Option<String>,
-    pub(in crate::data) hits: u64,
 }
 
 impl From<crate::service::ask::UpdateClip> for UpdateClip {
@@ -103,7 +101,6 @@ impl From<crate::service::ask::UpdateClip> for UpdateClip {
             expires: req.expires.into_inner().map(|time| time.timestamp()),
             password: req.password.into_inner(),
             shortcode: ShortCode::default().into(),
-            hits: req.hits.into_inner(),
         }
     }
 }

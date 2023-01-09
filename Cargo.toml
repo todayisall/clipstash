@@ -31,4 +31,6 @@ sqlx = { version = "0.6.2", features = [
     "uuid",
     "chrono"
 ] }
+handlebars = { version = "4", features = ["dir_source"] }
 dotenv = "0.15.0"
+rocket = { version = "0.5.0-rc.1", features = ["tls", "json"] }

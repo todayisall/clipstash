@@ -9,7 +9,6 @@ pub struct NewClip {
     pub title: field::Title,
     pub expires: field::Expires,
     pub password: field::Password,
-    pub hits: field::Hits,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
@@ -19,7 +18,6 @@ pub struct UpdateClip {
     pub expires: field::Expires,
     pub password: field::Password,
     pub shortcode: field::ShortCode,
-    pub hits: field::Hits,
 }
 
 #[derive(Debug, Deserialize, Serialize)]

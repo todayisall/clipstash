@@ -3,7 +3,9 @@ use derive_more::From;
 use serde::{Deserialize, Serialize};
 use std::str::FromStr;
 
-#[derive(Debug, Clone, Deserialize, Serialize, From)]
+use rocket::{UriDisplayPath, UriDisplayQuery};
+
+#[derive(Debug, Clone, Deserialize, Serialize, From, UriDisplayQuery, UriDisplayPath)]
 pub struct ShortCode(String);
 
 impl ShortCode {
@@ -59,4 +61,12 @@ impl FromStr for ShortCode {
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         Ok(Self(s.into()))
     }
+}
+
+use rocket::request::FromParam; // turn some data into param
+impl<'r> FromParam<'r> for ShortCode {
+  type Error = &'r str;
+  fn from_param(param: &'r str) -> Result<Self, Self::Error> {
+    Ok(ShortCode::from(param))
+  }
 }
