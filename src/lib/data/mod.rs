@@ -1,8 +1,11 @@
+pub mod model;
+pub mod query;
+
 use derive_more::{Display, From};
 use serde::{Deserialize, Serialize};
+use sqlx::Sqlite;
 use std::str::FromStr;
 use uuid::Uuid;
-use sqlx::Sqlite;
 
 #[derive(Debug, thiserror::Error)]
 pub enum DataError {
@@ -57,6 +60,12 @@ impl DbId {
 impl Default for DbId {
     fn default() -> Self {
         Self::new()
+    }
+}
+
+impl From<DbId> for String {
+    fn from(id: DbId) -> Self {
+        format!("{}", id.0)
     }
 }
 

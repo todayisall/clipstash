@@ -1,8 +1,8 @@
 mod clip_id;
 pub use clip_id::ClipId;
 
-mod short_code;
-pub use short_code::ShortCode;
+mod shortcode;
+pub use shortcode::ShortCode;
 
 mod content;
 pub use content::Content;
